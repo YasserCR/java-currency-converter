@@ -32,13 +32,20 @@ public class Main {
                 continue;
             }
 
-            System.out.print("Enter the amount to convert: ");
-            double amount = scanner.nextDouble();
-            scanner.nextLine();
+            double amount = 0;
+
+            while (amount <= 0){
+                System.out.print("Enter the amount to convert: ");
+                amount = scanner.nextDouble();
+                scanner.nextLine();
+                if (amount <= 0) System.out.println("The amount cannot be 0 or less");
+            }
 
             double result = converter.convert(amount, sourceCurrencyInfo, targetCurrencyInfo);
-
             System.out.printf("%.2f %s are %.2f %s%n", amount, sourceCurrencyCode, result, targetCurrencyCode);
+
+
+
 
             System.out.print("Do you want to perform another conversion? (y/n): ");
             String choice = scanner.nextLine();
